@@ -142,6 +142,75 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
+## Update camera_fragment.xml
+
+```xml
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/camera_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/game_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Find 5 objects!"
+            android:textSize="11sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:progress="30"
+            android:layout_below="@id/label"
+            />
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/view_finder"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_below="@id/progressBar"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/bottom_sheet_layout"
+        layout="@layout/info_bottom_sheet" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="@dimen/bottom_sheet_peek_height"
+        android:background="@color/bottom_sheet_background"
+        android:clipToPadding="true"
+        android:padding="@dimen/bottom_sheet_padding"
+        app:layout_anchor="@id/bottom_sheet_layout"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/mp_color_primary"
+        app:layout_anchor="@id/recyclerview_results"
+        app:layout_anchorGravity="bottom" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+```
+
 ## Update the View Model
 
 ### Update MainViewModel.kt
