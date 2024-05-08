@@ -216,6 +216,7 @@ class MainActivity : AppCompatActivity() {
 ### Update MainViewModel.kt
 
 ```kotlin
+
 class MainViewModel : ViewModel() {
     val labelLiveData = MutableLiveData<List<String>>()
 
@@ -232,6 +233,10 @@ class MainViewModel : ViewModel() {
         if (won) {
             _gamesWon++
         }
+    }
+
+    override fun toString(): String {
+        return "played: $gamesCompleted    won: $gamesWon"
     }
 
     // ...
