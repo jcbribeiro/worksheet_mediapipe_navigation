@@ -11,9 +11,6 @@
 - Compile and run the demo app on your physical device (if one is available):
   https://developer.android.com/studio/run/device
 
-
-
-
 ## Update the resources and configuration
 
 ### Copy the provided images to res/drawable
@@ -42,6 +39,31 @@ buildFeatures {
         android:title="Rules" />
 </menu>
 ```
+
+### * [ ] Create the nav_header.xml layout file
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navHeader"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
 
 ### Replace res/layout/activity_main.xml
 
@@ -403,9 +425,7 @@ class GameOverFragment : Fragment() {
 
 ![1715096659117](images/1715096659117.png)
 
-
 ![1715096605882](images/1715096605882.png)
-
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -605,12 +625,12 @@ Also, replace the former with the latter everywhere in your file:
 imageClassifierHelper.currentModel = position
 updateControlsUi()
 ```
+
 should be replaced with
+
 ````kotlin
 if (::imageClassifierHelper.isInitialized) {
   imageClassifierHelper.currentModel = position
   updateControlsUi()
 }
 ````
-
-
