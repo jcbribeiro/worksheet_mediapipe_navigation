@@ -40,7 +40,7 @@ buildFeatures {
 </menu>
 ```
 
-### * [ ] Create the nav_header.xml layout file
+### Create the nav_header.xml layout file
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -491,7 +491,7 @@ class GameOverFragment : Fragment() {
 }
 ```
 
-## Update the Nabigation Graph
+## Update the Navigation Graph
 
 ### Update nav_graph.xml
 
